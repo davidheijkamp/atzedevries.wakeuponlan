@@ -1,0 +1,15 @@
+---
+# tasks file for atzedevries.wakeuponlan
+
+- name: install etherwake
+  package:
+    name: etherwake
+    state: present
+
+- name: wake up device
+  wakeonlan:
+    mac: "{{ hostvars[item|quote].mac }}"
+  with_items:
+    - "{{ groups[group|quote] }}"
+
+
