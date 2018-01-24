@@ -5,6 +5,7 @@
   package:
     name: etherwake
     state: present
+  become: true
 
 - name: wake up device
   wakeonlan:
